@@ -1,18 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-import Login from './components/Login';
-import LandingNav from './components/Landingnav';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+
+
+import HomeGuest from './components/HomeGuest';
+import Landingfooter from './components/Landingfooter';
+import Header from './components/Header';
 
 
 function App() {
   return (
-    <div className="App">
-         
-         <Login/>
-        
-         
-    </div>
+    
+      <BrowserRouter>
+             <Header/>
+             <HomeGuest/>
+             <Landingfooter/>
+      </BrowserRouter>
+  
   );
 }
 
