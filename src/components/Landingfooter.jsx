@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 function Landingfooter(){
     return(
-        <div className="border-top text-center small text-muted py-3">
+        <footer className="border-top text-center small text-muted py-3">
         <p>
           <Link to="/" className="mx-1">Home</Link> |
           <Link to="/about-us" className="mx-1">About Us</Link> |
@@ -13,7 +13,7 @@ function Landingfooter(){
           Copyright &copy; 2021 <Link to="/" className="text-muted">AMS</Link>. All
           rights NOT YET reserved.
         </p>
-      </div>
+      </footer>
     )
 }
 

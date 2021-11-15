@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function NavBar(props){
+function NavBarTeacher(props){
 
   const [color,setColor] = useState("");
   const [colortw,setColorTw] = useState("");
@@ -8,32 +8,34 @@ function NavBar(props){
   const [value,setVal] = useState("Assigned");
   props.onNavChange(value)
 
-  function handleAssigned(e){
+  function handleAssign(e){
       setColorTw("");
       setColorTh("");
       setColor("red");
-      setVal("Assigned"); 
+      setVal("Assign"); 
       
 
   }
 
-  function handleCompleted(e){
+  function handleEvaluvate(e){
 
     setColor("");
     setColorTh("");
     setColorTw("red");
-    setVal("Completed");
+    setVal("Evaluvate");
   
 }
 
 function handleFeedback(e){
 
-  setColor("");
-  setColorTh("red");
-  setColorTw("");
-  setVal("Feedback");
+    setColor("");
+    setColorTw("");
+    setColorTh("red");
+    setVal("Feedback");
+  
+  }
 
-}
+
 
 	{
 		return (
@@ -41,8 +43,8 @@ function handleFeedback(e){
             <nav>
               <ul className="navbar">
                 
-                <li style={{backgroundColor:color,padding:"20px",transition:"0.2s"}}><a href="#" onClick={handleAssigned}>Assigned</a></li>
-                <li style={{backgroundColor:colortw,padding:"20px",transition:"0.2s"}}><a href="#" onClick={handleCompleted}>Completed</a></li>
+                <li style={{backgroundColor:color,padding:"20px",transition:"0.2s"}}><a href="#" onClick={handleAssign}>Assigned</a></li>
+                <li style={{backgroundColor:colortw,padding:"20px",transition:"0.2s"}}><a href="#" onClick={handleEvaluvate}>Evaluvate</a></li>
                 <li style={{backgroundColor:colorth,padding:"20px",transition:"0.2s"}}><a href="#" onClick={handleFeedback}>Feedback</a></li>
               </ul>
             </nav>
@@ -52,4 +54,4 @@ function handleFeedback(e){
 }
 
 
-export default NavBar;
+export default NavBarTeacher;

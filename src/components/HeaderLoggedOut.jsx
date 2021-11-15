@@ -1,16 +1,25 @@
 import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
+import Statecontext from "../StateContext";
 
 
 function HeaderLoggedOut(props) {
   
+
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [context,setContext] = useContext(Statecontext);
+  
   function handleSubmit(e) {
-     e.preventDefault();
-  }
+       if(username=="Arun" && password=="pass"){
+       setContext(true);
+       }
+  } 
+
+ 
 
   return (
+
     <form onSubmit={handleSubmit} className="mb-0 pt-2 pt-md-0">
       <div className="row align-items-center">
         <div className="col-md mr-0 pr-md-0 mb-3 mb-md-0">
@@ -37,6 +46,7 @@ function HeaderLoggedOut(props) {
         </div>
       </div>
     </form>
+
   );
 }
 

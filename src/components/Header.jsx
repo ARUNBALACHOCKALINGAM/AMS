@@ -1,14 +1,17 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
+import Statecontext from "../StateContext";
+
 import HeaderLoggedOut from "./HeaderLoggedOut";
 import HeaderLoggedIn from "./HeaderLoggedIn";
 
 
 function Header(props) {
-  
-  const loggedIn= false;
 
-  const headerContent = loggedIn ? (
+  const [context,setContext] = useContext(Statecontext);
+
+  const headerContent = context ? (
     <HeaderLoggedIn />
   ) : (
     <HeaderLoggedOut />

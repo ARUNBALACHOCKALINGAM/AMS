@@ -1,14 +1,27 @@
 import React, { useState, useEffect, useContext } from "react";
 import Page from "./Page";
 import Axios from "axios";
+import Statecontext from "../StateContext";
+import { isCompositeComponentWithType } from "react-dom/test-utils";
 
 
 function HomeGuest() {
+
+  const [context,setContext] = useContext(Statecontext);
+
+
+  const [password,setPassword] = useState("");
+  const [username,setUsername] = useState("");
+  const [email,setEmail] = useState("");
+  
  
 
   function handleSubmit(e) {
     e.preventDefault();
-
+    console.log(context);
+    if(username=="" && password == "" && email==""){
+       setContext(true);
+    }
   }
 
   return (
@@ -27,12 +40,16 @@ function HomeGuest() {
                 <small>Username</small>
               </label>
               <input
-            
+                   onChange = {
+                    (e) =>{
+                      setUsername(e.target.value)
+                    }
+                  }
                 id="username-register"
                 name="username"
                 className="form-control"
                 type="text"
-                placeholder="Pick a username"
+                placeholder="Your username"
                 autoComplete="off"
               />
               
@@ -42,7 +59,11 @@ function HomeGuest() {
                 <small>Email</small>
               </label>
               <input
-              
+                onChange = {
+                  (e) =>{
+                    setEmail(e.target.value)
+                  }
+                }
                 id="email-register"
                 name="email"
                 className="form-control"
@@ -57,7 +78,11 @@ function HomeGuest() {
                 <small>Password</small>
               </label>
               <input
-            
+                   onChange = {
+                    (e) =>{
+                      setPassword(e.target.value)
+                    }
+                  }
                 id="password-register"
                 name="password"
                 className="form-control"
