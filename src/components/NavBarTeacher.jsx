@@ -42,7 +42,6 @@ function handleFeedback(e){
             <>
             <nav>
               <ul className="navbar">
-                
                 <li style={{backgroundColor:color,padding:"20px",transition:"0.2s"}}><a href="#" onClick={handleAssign}>Assigned</a></li>
                 <li style={{backgroundColor:colortw,padding:"20px",transition:"0.2s"}}><a href="#" onClick={handleEvaluvate}>Evaluvate</a></li>
                 <li style={{backgroundColor:colorth,padding:"20px",transition:"0.2s"}}><a href="#" onClick={handleFeedback}>Feedback</a></li>

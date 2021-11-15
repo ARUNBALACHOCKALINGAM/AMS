@@ -9,9 +9,11 @@ import HeaderLoggedIn from "./HeaderLoggedIn";
 
 function Header(props) {
 
-  const [context,setContext] = useContext(Statecontext);
+  const {login,data} = useContext(Statecontext);
 
-  const headerContent = context ? (
+  const [loggedin,setLoggedIn]=login;
+
+  const headerContent = loggedin ? (
     <HeaderLoggedIn />
   ) : (
     <HeaderLoggedOut />

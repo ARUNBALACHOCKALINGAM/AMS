@@ -2,18 +2,41 @@ import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
 import Statecontext from "../StateContext";
 
+Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
+
 
 function HeaderLoggedOut(props) {
   
 
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const [context,setContext] = useContext(Statecontext);
+
+  const {login,data,type} = useContext(Statecontext);
+
+  const [loggedin,setLoggedIn]=login;
+  const [info,setInfo]=data;
+  const [access,setAcess]=type;
   
-  function handleSubmit(e) {
-       if(username=="Arun" && password=="pass"){
-       setContext(true);
-       }
+  
+  async function handleSubmit(e) {
+      
+    e.preventDefault();
+
+       const res=await Axios.post("/auth/login?key=6d2044ad57972d5230f586a829893ba5",{
+        username:username,
+        password:password,  
+      })
+      if(res.data.status=="true" && res.data.type=="student"){
+           setLoggedIn(true);
+           setAcess("student");
+      }else if(res.data.status=="true" && res.data.type=="prof"){
+        setLoggedIn(true);
+        setAcess("teacher");
+      }else{
+        setLoggedIn(false);
+      }
+      setInfo(res.data);
+ 
   } 
 
  

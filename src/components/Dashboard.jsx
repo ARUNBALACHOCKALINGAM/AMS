@@ -11,7 +11,7 @@ function Dashboard() {
   return (
     <Page title="Dashboard">
         <>
-         <CoursesEnrolled/>
+         <CoursesEnrolled />
         </>
     </Page>
   );

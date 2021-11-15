@@ -5,11 +5,12 @@ import Statecontext from "../StateContext";
 
 function HeaderLoggedIn(props) {
 
-  const [context,setContext] = useContext(Statecontext);
+
+  const {login,data} = useContext(Statecontext);
+  const [loggedin,setLoggedIn]=login;
   
   function handleLogout(e) {
-       console.log(e.target.value);
-       setContext(false);
+       setLoggedIn(false);
   } 
 
 

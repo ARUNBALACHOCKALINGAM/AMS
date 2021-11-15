@@ -16,18 +16,34 @@ import { useState } from "react";
 
 function App() {
 
-  const [loggedIn,setLoggedIn]=useState(false)
+  const [loggedIn,setLoggedIn]=useState(false);
+  const [data,setData] = useState({
+    CourseID:{},
+    id: "",
+    message: "",
+    name: "",
+    status: "",
+    type: "",
+    username: "",
+  });
+  const [type,setType] = useState("");
+
+
+
+  const dash = type==="student" ? (<Dashboard/>) : (<TeacherDashboard/>);
+
+  
 
   
   return (
     
-    <Statecontext.Provider value={[loggedIn,setLoggedIn]}>
+    <Statecontext.Provider value={{login:[loggedIn,setLoggedIn],data:[data,setData],type:[type,setType]}}>
       <BrowserRouter>
         <Header/>
          <Routes>
-         <Route path="/" element={loggedIn? <Dashboard/> : <HomeGuest/>} />
-         <Route path="/teacher/dashboard/" element={< Mainpageteacher/>} />
-         <Route path="/student/dashboard/" element={< Mainpagestudent/>} />
+         <Route path="/" element={loggedIn ? dash : <HomeGuest/>} />
+         <Route path="/teacher/:course" element={< Mainpageteacher/>} />
+         <Route path="/student/:course" element={< Mainpagestudent/>} />
         </Routes>
         <Landingfooter/>
        </BrowserRouter>
