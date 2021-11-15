@@ -33,31 +33,40 @@ function Completed() {
    {assignmentdata.map((element)=>{
     {Object.keys(element.AssignmentCompleted).map((completed)=>{
           array.push(completed);
-          marks.push(element.AssignmentCompleted[{completed}])
+          return (info.id == completed ? marks.push(element.AssignmentCompleted[completed]) : "")
     })}
   })}
 
+ 
+
   const assignment = [];
-  console.log(array);
-  console.log(info.id);
+
+
+  
 
   assignmentdata.map((element)=>{
    Object.keys(element.AssignmentCompleted).map((completed)=>{
       return (completed == info.id ? assignment.push(element.AssignmentName) : "")
     })
   })
+
+
+  var result = {};
+  assignment.forEach((assignment, i) => result[assignment] = marks[i]);
+  console.log(result);
   
 
-  console.log(assignment)
+  console.log(marks);
 
 
 
   return (
     <>
      
-        {assignment.map((element)=>{
-            return (<Card style={{display:"flex"}} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
+        {Object.keys(result).map((element)=>{
+            return (<Card style={{display:"flex"}} key={element} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
             <h4>{element}</h4>
+            <p>Marks:{result[element]}</p>
             </Card>)
             })}
      
