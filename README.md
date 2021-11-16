@@ -1,4 +1,4 @@
-##Assignment management system
+## Assignment management system
 
 - This project/application addresses the various problems that are
 faced in our current mode of uploading assignments and
@@ -9,7 +9,7 @@ upload assignments on time.
 make sure you are on top of your assignments and get them
 submitted on time.
 
-= The application integrates a kanban board style that enables you to
+- The application integrates a kanban board style that enables you to
 easily keep track of the various assignments in hand.
 
 - Enables users to upload large files with varying format types, thus
