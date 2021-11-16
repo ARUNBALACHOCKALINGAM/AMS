@@ -11,9 +11,8 @@ Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
 
 function Assigned() {
 
-  const {data} = useContext(Statecontext);
-  const [info,setInfo]=data;
-  console.log(info.id);
+ 
+  
 
   const [assignmentdata,setData] = useState([]);
   const [assignmentId,setId] =useState(null);
@@ -41,7 +40,9 @@ function Assigned() {
     console.log(e.target.parentElement.id)
     const formData = new FormData();
     formData.append("file", state.selectedFile);
-      
+      if(id==""){
+        alert("invalid id")
+      }else{
       const res = await Axios.post(
         `/assign/file_upload/?key=6d2044ad57972d5230f586a829893ba5&courseID=${course}&studentID=${info.id}&assignmentID=${id}`,
         formData,
@@ -51,9 +52,11 @@ function Assigned() {
           },
         },
       );
+      console.log(res.data)
       if(res.data){
         alert("Uploaded succesfully")
       }
+    }
   }
 
 
@@ -77,7 +80,7 @@ function Assigned() {
   return (
     <>
     {assignmentdata.map((element)=>{
-       return(info.id in element.AssignmentCompleted ? "" : <Card style={{display:"flex"}} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
+       return(info.id in element.AssignmentCompleted ? "" : <Card style={{display:"flex"}} id={element.AssignmentID} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
        <h4>{element.AssignmentName}</h4>
        <p>{element.AssignmentDescription}</p>
        <input type="file" onChange={onFileChange}/><UploadIcon onClick={handleClick} style={{backgroundColor:"steelblue",borderRadius:"50%",}}/>

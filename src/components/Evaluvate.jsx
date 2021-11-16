@@ -29,7 +29,7 @@ function Evaluvate() {
        {data.map((element)=>{
        return(    
        <Card id={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
-       <h4>{element.AssignmentName}<VisibilityIcon onClick={handleClick} style={{width:"40px",height:"40px",backgroundColor:"steelblue",borderRadius:"50%",marginLeft:"300px",color:"white",padding:"10px"}}/></h4>
+       <h4>{element.AssignmentName}<VisibilityIcon  style={{width:"40px",height:"40px",backgroundColor:"steelblue",borderRadius:"50%",marginLeft:"300px",color:"white",padding:"10px"}}/></h4>
      </Card>
      )
      })}
