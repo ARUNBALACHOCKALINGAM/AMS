@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
 import Statecontext from "../StateContext";
 
-Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
+Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
 
 
 function HeaderLoggedOut(props) {

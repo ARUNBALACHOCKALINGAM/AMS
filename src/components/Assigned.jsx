@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState,useContext } from "react"
 import {Card} from "@mui/material"
 import {useParams, useSearchParams} from "react-router-dom"
 import Axios from "axios";
 import UploadIcon from '@mui/icons-material/Upload';
+import { Info } from "@material-ui/icons";
+import Statecontext from "../StateContext";
 
-Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
+Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
 
 
 function Assigned() {
 
-  const [data,setData] = useState([]);
+  const {data} = useContext(Statecontext);
+  const [info,setInfo]=data;
+  console.log(info.id);
+
+  const [assignmentdata,setData] = useState([]);
+  const [assignmentId,setId] =useState(0);
   let { course } = useParams();
 
   const [state,setState]= useState(null);
@@ -20,18 +27,24 @@ function Assigned() {
 
   };
 
-  async function handleClick(){
+  async function handleClick(e){
     // Create an object of formData
+    setId(e.target.parentElement.id)
     const formData = new FormData();
-    
-    // Update the formData object
-    formData.append(
-      "myFile",
-      state.selectedFile,
-      state.selectedFile.name
-    );
-    const res=await Axios.post("/assign/upload_file?key=6d2044ad57972d5230f586a829893ba5",state.selectedFile);
+    formData.append("file", state.selectedFile);
 
+      const res = await Axios.post(
+        `/assign/file_upload/?key=6d2044ad57972d5230f586a829893ba5&courseID=${course}&studentID=${info.id}&assignmentID=${assignmentId}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
+      );
+      if(res.data){
+        alert("Uploaded succesfully")
+      }
   }
 
 
@@ -52,8 +65,8 @@ function Assigned() {
   
   return (
     <>
-    {data.map((element)=>{
-       return( <Card style={{display:"flex"}} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
+    {assignmentdata.map((element)=>{
+       return( <Card style={{display:"flex"}} id={element.AssignmentID} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
        <h4>{element.AssignmentName}</h4>
        <p>{element.AssignmentDescription}</p>
        <input type="file" onChange={onFileChange}/><UploadIcon onClick={handleClick} style={{backgroundColor:"steelblue",borderRadius:"50%",}}/>

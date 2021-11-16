@@ -7,7 +7,7 @@ import { useParams} from "react-router-dom";
 import Axios from "axios";
 
 
-Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
+Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
 
 
 function Assign() {

@@ -11,7 +11,7 @@ import Axios from 'axios';
 
 import {useParams} from "react-router-dom";
 
-Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
+Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
 
 export default function DialogForm(props) {
 
@@ -26,7 +26,7 @@ export default function DialogForm(props) {
 
 	async function handleSubmit(){
 		
-		const res= await Axios.post("https://ams-api.herokuapp.com/api/assign/create_assignment?key=6d2044ad57972d5230f586a829893ba5",{
+		const res= await Axios.post("http://127.0.0.1:5000/api/assign/create_assignment?key=6d2044ad57972d5230f586a829893ba5",{
 			CourseID: course,
             AssignmentName: name,
             AssignmentDescription: desc,

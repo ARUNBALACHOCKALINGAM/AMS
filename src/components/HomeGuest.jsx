@@ -4,7 +4,7 @@ import Axios from "axios";
 import Statecontext from "../StateContext";
 import { isCompositeComponentWithType } from "react-dom/test-utils";
 
-Axios.defaults.baseURL= "https://ams-api.herokuapp.com/api/";
+Axios.defaults.baseURL= "http://127.0.0.1:5000/api/";
 
 
 function HomeGuest() {
