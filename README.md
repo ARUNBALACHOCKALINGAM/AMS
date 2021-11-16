@@ -5,7 +5,7 @@ faced in our current mode of uploading assignments and
 adds on it’s own features that makes it a lot easier to manage and
 upload assignments on time.
 
--  The application also integrates a tracking system that allows you to
+- The application also integrates a tracking system that allows you to
 make sure you are on top of your assignments and get them
 submitted on time.
 
