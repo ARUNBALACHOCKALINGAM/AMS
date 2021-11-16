@@ -13,8 +13,6 @@ function NavBarTeacher(props){
       setColorTh("");
       setColor("red");
       setVal("Assign"); 
-      
-
   }
 
   function handleEvaluvate(e){

@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from "react"
+import React, { useEffect, useState , useContext } from "react"
 import {Card} from "@mui/material"
 import {useParams, useSearchParams} from "react-router-dom"
 import Axios from "axios";
@@ -18,6 +18,13 @@ function Assigned() {
   const [assignmentdata,setData] = useState([]);
   const [assignmentId,setId] =useState(null);
   let { course } = useParams();
+
+  const {data} = useContext(Statecontext)
+
+  const [info,setInfo] = data
+  
+
+  
 
   const [state,setState]= useState(null);
 
@@ -50,6 +57,8 @@ function Assigned() {
   }
 
 
+   
+
   
   
   
@@ -68,7 +77,7 @@ function Assigned() {
   return (
     <>
     {assignmentdata.map((element)=>{
-       return( <Card style={{display:"flex"}} id={element.AssignmentID} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
+       return(info.id in element.AssignmentCompleted ? "" : <Card style={{display:"flex"}} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
        <h4>{element.AssignmentName}</h4>
        <p>{element.AssignmentDescription}</p>
        <input type="file" onChange={onFileChange}/><UploadIcon onClick={handleClick} style={{backgroundColor:"steelblue",borderRadius:"50%",}}/>
