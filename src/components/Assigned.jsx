@@ -16,7 +16,7 @@ function Assigned() {
   console.log(info.id);
 
   const [assignmentdata,setData] = useState([]);
-  const [assignmentId,setId] =useState(0);
+  const [assignmentId,setId] =useState(null);
   let { course } = useParams();
 
   const [state,setState]= useState(null);
@@ -29,12 +29,14 @@ function Assigned() {
 
   async function handleClick(e){
     // Create an object of formData
-    setId(e.target.parentElement.id)
+    let id=e.target.parentElement.id;
+    console.log(id);
+    console.log(e.target.parentElement.id)
     const formData = new FormData();
     formData.append("file", state.selectedFile);
-
+      
       const res = await Axios.post(
-        `/assign/file_upload/?key=6d2044ad57972d5230f586a829893ba5&courseID=${course}&studentID=${info.id}&assignmentID=${assignmentId}`,
+        `/assign/file_upload/?key=6d2044ad57972d5230f586a829893ba5&courseID=${course}&studentID=${info.id}&assignmentID=${id}`,
         formData,
         {
           headers: {
