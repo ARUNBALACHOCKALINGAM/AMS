@@ -4,13 +4,12 @@ import Axios from "axios";
 import Statecontext from "../StateContext";
 import { isCompositeComponentWithType } from "react-dom/test-utils";
 
-Axios.defaults.baseURL= "http://127.0.0.1:5000/api/";
+Axios.defaults.baseURL= "https://ams-api.herokuapp.com/api/";
 
 
 function HomeGuest() {
 
   const {login,data} = useContext(Statecontext);
-
   const [loggedin,setLoggedIn]=login;
   const [info,setInfo]=data;
 
@@ -39,7 +38,7 @@ function HomeGuest() {
     <Page title="Welcome!" wide={true}>
       <div className="row align-items-center">
         <div className="col-lg-7 py-3 py-md-5">
-          <h1 className="display-3">hello world!</h1>
+          <h1 className="display-3">Welcome!</h1>
           <p className="lead text-muted">
            
           </p>

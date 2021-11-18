@@ -41,7 +41,7 @@ function Evaluvate() {
        {assignmentdata.map((element)=>{
        return(    
        <Card id={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
-       <h4>{element.AssignmentName}<a href="www.google.com"><VisibilityIcon style={{width:"40px",height:"40px",backgroundColor:"steelblue",borderRadius:"50%",marginLeft:"300px",color:"white",padding:"10px"}}/></a></h4>
+       <h4>{element.AssignmentName}<a href={``}><VisibilityIcon style={{width:"40px",height:"40px",backgroundColor:"steelblue",borderRadius:"50%",marginLeft:"300px",color:"white",padding:"10px"}}/></a></h4>
      </Card>
      )
      })}

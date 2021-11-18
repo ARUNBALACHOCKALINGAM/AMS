@@ -7,7 +7,7 @@ import { useParams} from "react-router-dom";
 
 
 
-Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
+Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
 
 function Completed() {
  
@@ -53,10 +53,7 @@ function Completed() {
 
   var result = {};
   assignment.forEach((assignment, i) => result[assignment] = marks[i]);
-  console.log(result);
-  
 
-  console.log(marks);
 
 
 

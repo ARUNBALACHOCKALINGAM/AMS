@@ -6,7 +6,7 @@ import UploadIcon from '@mui/icons-material/Upload';
 import { Info } from "@material-ui/icons";
 import Statecontext from "../StateContext";
 
-Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
+Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
 
 
 function Assigned() {
@@ -18,10 +18,6 @@ function Assigned() {
   const [assignmentdata,setData] = useState([]);
   const [assignmentId,setId] =useState(null);
   let { course } = useParams();
-
-  const {data} = useContext(Statecontext)
-
-  const [info,setInfo] = data
   
 
   
@@ -36,7 +32,7 @@ function Assigned() {
 
   async function handleClick(e){
     // Create an object of formData
-    let id=e.target.parentElement.id;
+    let id=e.currentTarget.parentElement;
     console.log(id);
     console.log(e.target.parentElement.id)
     const formData = new FormData();
