@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
 import Statecontext from "../StateContext";
+import { useNavigate } from 'react-router-dom';
 
 Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
 
 
 function HeaderLoggedOut(props) {
   
+  let navigate = useNavigate();
 
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();

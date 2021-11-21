@@ -31,11 +31,13 @@ function Completed() {
    },[])
 
    {assignmentdata.map((element)=>{
-    {Object.keys(element.AssignmentCompleted).map((completed)=>{
+    {Object.keys(element).map((completed)=>{
           array.push(completed);
           return (info.id == completed ? marks.push(element.AssignmentCompleted[completed]) : "")
     })}
   })}
+
+  
 
  
 
