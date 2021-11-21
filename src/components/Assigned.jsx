@@ -82,7 +82,7 @@ function Assigned() {
        return(info.id in element.AssignmentCompleted ? "" : <Card style={{display:"flex"}} id={element.AssignmentID} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
        <h4>{element.AssignmentName}</h4>
        <p>{element.AssignmentDescription}</p>
-       <input type="file" onChange={onFileChange}/><UploadIcon onClick={handleClick} style={{backgroundColor:"steelblue",borderRadius:"50%",}}/>
+       <input type="file" onChange={onFileChange}/><UploadIcon onClick={handleClick} style={{backgroundColor:"black",borderRadius:"50%",}}/>
        </Card>)
      })}
      

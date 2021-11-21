@@ -17,7 +17,7 @@ function CoursesEnrolled() {
   return (
 
     <>
-     <h1 style={{textAlign:"center",backgroundColor:"steelblue",color:"white"}}>Courses enrolled</h1>
+     <h1 style={{textAlign:"center",backgroundColor:"black",color:"white"}}>Courses enrolled</h1>
         {typeof info === "undefined" ? "" : Object.keys(info.CourseID).map((course)=>{
             return (
           <Card elevation={5} style={{padding:"20px"}}>

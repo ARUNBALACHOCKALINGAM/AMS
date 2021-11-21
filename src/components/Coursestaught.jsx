@@ -12,7 +12,7 @@ function Coursestaught() {
   return (
     
     <>
-      <h1 style={{textAlign:"center",backgroundColor:"steelblue",color:"white"}}>Your Courses</h1>
+      <h1 style={{textAlign:"center",backgroundColor:"black",color:"white"}}>Your Courses</h1>
       {typeof info === "undefined" ? "" : Object.keys(info.CourseID).map((course)=>{
             return (
           <Card key={course} elevation={5} style={{padding:"20px"}}>

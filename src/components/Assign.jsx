@@ -49,7 +49,7 @@ function Assign() {
      })}
       <div>
         <Card elevation={5} style={{padding:"20px",marginTop:"30px"}}>
-        <h4>Add an assignment <span onClick={handleClick}><AddIcon style={{backgroundColor:"steelblue",borderRadius:"50%",marginLeft:"400px"}}/></span></h4>
+        <h4>Add an assignment <span onClick={handleClick}><AddIcon style={{backgroundColor:"black",borderRadius:"50%",marginLeft:"400px"}}/></span></h4>
         </Card>
      <DialogForm open={open} handleClose={handleClose}/>
      </div>  

@@ -592,7 +592,7 @@ header {
   align-items: flex-end;
   height: 5rem;
   padding: 1rem 1rem 0 2rem;
-  background: darkslateblue;
+  background: black;
 }
 
 .h-container {
@@ -612,7 +612,7 @@ header {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
-  background: darkslateblue;
+  background: black;
 }
 
 .logo {
@@ -627,7 +627,7 @@ header {
   height: 4.5rem;
   border-radius: 50%;
   border: 0.3rem solid white;
-  background: steelblue;
+  background: black;
   transform: rotate(-15deg);
 }
 
@@ -635,7 +635,7 @@ header {
   list-style: none;
   margin: 0;
   padding: 0px;
-  background-color: steelblue;
+  background-color: black;
 }
 
 .navbar li {
@@ -659,7 +659,7 @@ header {
   padding: 0.5rem;
   border-radius: 0.3rem;
   border: none;
-  background: steelblue;
+  background: black;
 }
 
 .navbar .btn:hover {
