@@ -3,6 +3,7 @@ import {Card} from "@mui/material"
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import {useParams} from "react-router-dom"
 import Axios from 'axios';
+import { Link } from "@mui/material";
 import Statecontext from "../StateContext";
 
 
@@ -38,14 +39,13 @@ function Evaluvate() {
 
   return (
     <>
-       {assignmentdata.map((element)=>{
-       return(    
-       <Card id={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
-       <h4>{element.AssignmentName}<VisibilityIcon  style={{width:"40px",height:"40px",backgroundColor:"steelblue",borderRadius:"50%",marginLeft:"300px",color:"white",padding:"10px"}}/></h4>
-     </Card>
-     )
+        {assignmentdata.map((element)=>{
+       return(info.id in element.AssignmentCompleted ? 
+        <Card id={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
+       <h4>{element.AssignmentName}<a href={`http://127.0.0.1:5000/api/assign/get-pdf/${info.id}_${course}_${element.AssignmentID}?key=6d2044ad57972d5230f586a829893ba5`}><VisibilityIcon  style={{width:"40px",height:"40px",backgroundColor:"steelblue",borderRadius:"50%",marginLeft:"300px",color:"white",padding:"10px"}}/></a></h4>
+      </Card> : "")
      })}
-       
+     
     
     </>
   )
