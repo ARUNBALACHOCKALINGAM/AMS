@@ -4,13 +4,12 @@ import Axios from "axios";
 import Statecontext from "../StateContext";
 import { isCompositeComponentWithType } from "react-dom/test-utils";
 
-Axios.defaults.baseURL= "http://127.0.0.1:5000/api/";
+Axios.defaults.baseURL= "https://ams-api.herokuapp.com/api/";
 
 
 function HomeGuest() {
 
   const {login,data} = useContext(Statecontext);
-
   const [loggedin,setLoggedIn]=login;
   const [info,setInfo]=data;
 

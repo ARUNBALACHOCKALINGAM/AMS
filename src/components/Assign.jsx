@@ -7,7 +7,7 @@ import { useParams} from "react-router-dom";
 import Axios from "axios";
 
 
-Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
+Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
 
 
 function Assign() {
@@ -49,7 +49,7 @@ function Assign() {
      })}
       <div>
         <Card elevation={5} style={{padding:"20px",marginTop:"30px"}}>
-        <h4>Add an assignment <span onClick={handleClick}><AddIcon style={{backgroundColor:"steelblue",borderRadius:"50%",marginLeft:"400px"}}/></span></h4>
+        <h4>Add an assignment <span onClick={handleClick}><AddIcon style={{backgroundColor:"black",borderRadius:"50%",marginLeft:"400px"}}/></span></h4>
         </Card>
      <DialogForm open={open} handleClose={handleClose}/>
      </div>  

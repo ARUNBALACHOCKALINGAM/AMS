@@ -1,16 +1,20 @@
 import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Statecontext from "../StateContext";
+
 
 
 function HeaderLoggedIn(props) {
 
 
+  let navigate = useNavigate();
   const {login,data} = useContext(Statecontext);
   const [loggedin,setLoggedIn]=login;
+
   
   function handleLogout(e) {
        setLoggedIn(false);
+       navigate('/')
   } 
 
 

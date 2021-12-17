@@ -3,10 +3,9 @@ import {Card} from "@mui/material"
 import {useParams, useSearchParams} from "react-router-dom"
 import Axios from "axios";
 import UploadIcon from '@mui/icons-material/Upload';
-import { Info } from "@material-ui/icons";
 import Statecontext from "../StateContext";
 
-Axios.defaults.baseUrl="http://127.0.0.1:5000/api/"
+Axios.defaults.baseUrl="https://ams-api.herokuapp.com/api/"
 
 
 function Assigned() {
@@ -16,11 +15,11 @@ function Assigned() {
 
   const [assignmentdata,setData] = useState([]);
   const [assignmentId,setId] =useState(null);
+  const {data} = useContext(Statecontext);
+
+  const [info,setInfo] = data;
+
   let { course } = useParams();
-
-  const {data} = useContext(Statecontext)
-
-  const [info,setInfo] = data
   
 
   
@@ -35,7 +34,7 @@ function Assigned() {
 
   async function handleClick(e){
     // Create an object of formData
-    let id=e.target.parentElement.id;
+    let id=e.currentTarget.parentElement;
     console.log(id);
     console.log(e.target.parentElement.id)
     const formData = new FormData();
@@ -83,7 +82,7 @@ function Assigned() {
        return(info.id in element.AssignmentCompleted ? "" : <Card style={{display:"flex"}} id={element.AssignmentID} key={element.AssignmentID} elevation={5} style={{padding:"20px",marginTop:"30px"}}>
        <h4>{element.AssignmentName}</h4>
        <p>{element.AssignmentDescription}</p>
-       <input type="file" onChange={onFileChange}/><UploadIcon onClick={handleClick} style={{backgroundColor:"steelblue",borderRadius:"50%",}}/>
+       <input type="file" onChange={onFileChange}/><UploadIcon onClick={handleClick} style={{backgroundColor:"black",borderRadius:"50%",}}/>
        </Card>)
      })}
      
